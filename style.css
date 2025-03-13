@@ -1,0 +1,152 @@
+/* static/style.css */
+
+:root {
+  --primary-color: black;
+  --secondary-color: #070707;
+  --bg-color: #f5f7fa;
+  --gradient-start: #f5f7fa;
+  --gradient-end: #c3cfe2;
+  --font-family: 'Roboto', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: #333;
+}
+
+.container {
+  flex: 1;
+  max-width: 900px;
+  width: 90%;
+  margin: 40px auto;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.container:hover {
+  transform: scale(1.02);
+}
+
+header {
+  background: var(--primary-color);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+header p {
+  font-size: 1rem;
+  opacity: 0.9;
+}
+
+main {
+  padding: 30px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.form-group input[type="text"] {
+  flex: 1;
+  padding: 15px;
+  font-size: 1rem;
+  border: 2px solid #ddd;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+  border-color: var(--primary-color);
+}
+
+.form-group button {
+  padding: 15px 25px;
+  font-size: 1rem;
+  border: none;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.form-group button:hover {
+  background: var(--secondary-color);
+}
+
+.loader {
+  display: none;
+  text-align: center;
+  margin: 20px 0;
+}
+
+.loader .spinner {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid var(--primary-color);
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.result, .error {
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.result {
+  background: #e8f5e9;
+  border: 1px solid #c8e6c9;
+}
+
+.error {
+  background: #ffebee;
+  border: 1px solid #ffcdd2;
+}
+
+footer {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.5rem;
+  }
+  .form-group input[type="text"],
+  .form-group button {
+    font-size: 0.9rem;
+  }
+}

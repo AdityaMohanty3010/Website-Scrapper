@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Web Scraper</title>
+    <!-- Google Font for better typography -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Web Scraper</h1>
+        <p>Enter a URL and let our model summarize the content for you!</p>
+      </header>
+      <main>
+        <form id="scrapeForm" method="POST">
+          <div class="input-group">
+            <input
+              type="text"
+              id="url"
+              name="url"
+              placeholder="https://example.com"
+              required
+            />
+            <button type="submit">Scrape &amp; Summarize</button>
+          </div>
+        </form>
+        <!-- Loader element (hidden by default) -->
+        <div id="loader" class="loader">
+          <div class="spinner"></div>
+        </div>
+        {% if summary %}
+        <section class="result">
+          <h2>Summary</h2>
+          <p>{{ summary }}</p>
+        </section>
+        {% endif %} {% if error %}
+        <section class="error">
+          <h2>Error</h2>
+          <p>{{ error }}</p>
+        </section>
+        {% endif %}
+      </main>
+      <footer>
+        <p>&copy; Copyrights reserved</p>
+      </footer>
+    </div>
+    <script src="{{ url_for('static', filename='main.js') }}"></script>
+  </body>
+</html>
